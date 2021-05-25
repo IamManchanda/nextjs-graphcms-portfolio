@@ -1,5 +1,5 @@
-query PortfoliosQuery {
-  portfolios {
+query PortfolioBySlugQuery($slug: String!) {
+  portfolio(where: { slug: $slug }) {
     title
     slug
     tags
