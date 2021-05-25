@@ -1,20 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
 import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import he from "he";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 function PagePortfolioItemBySlug({ portfolioItem }) {
-  console.log({ portfolioItem });
   const {
     title,
     date,
     description,
     tags,
-    content,
     coverImage,
     coverImageWidth,
     coverImageHeight,
+    contentMdx,
   } = portfolioItem;
 
   return (
@@ -40,6 +42,9 @@ function PagePortfolioItemBySlug({ portfolioItem }) {
           height={coverImageHeight}
           layout="responsive"
         />
+        <div>
+          <MDXRemote {...contentMdx} />
+        </div>
       </div>
     </>
   );
@@ -88,7 +93,10 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      portfolioItem,
+      portfolioItem: {
+        contentMdx: await serialize(he.decode(portfolioItem.content)),
+        ...portfolioItem,
+      },
     },
   };
 }
