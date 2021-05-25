@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GraphQLClient, gql } from "graphql-request";
 
-function PagePortfolioBySlug({ portfolioItem }) {
+function PagePortfolioItemBySlug({ portfolioItem }) {
   const router = useRouter();
   if (router.isFallback) {
     return <div className="p-10">Loading...</div>;
@@ -80,4 +80,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default PagePortfolioBySlug;
+export default PagePortfolioItemBySlug;
