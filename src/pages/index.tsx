@@ -1,8 +1,8 @@
 import Head from "next/head";
+import Link from "next/link";
 import { GraphQLClient, gql } from "graphql-request";
 
 function PageIndex({ data }) {
-  console.log({ data });
   return (
     <>
       <Head>
@@ -10,7 +10,27 @@ function PageIndex({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Welcome to our awesome portfolio</h1>
+      <div className="p-10">
+        <div>
+          {data?.portfolios?.map(({ title, slug }) => (
+            <div key={slug}>
+              <Link href={`/portfolio/${slug}`}>
+                <a>{title}</a>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          {data?.posts?.map(({ title, slug }) => (
+            <div key={slug}>
+              <Link href={`/blog/${slug}`}>
+                <a>{title}</a>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
@@ -20,30 +40,14 @@ export async function getStaticProps() {
   const graphQLClient = new GraphQLClient(endpoint);
 
   const query = gql`
-    query PostsAndPortfoliosQuery {
+    query HomepageQuery {
       posts {
         title
         slug
-        description
-        date
-        id
-        tags
-        author {
-          name
-          image
-          imageWidth
-          imageHeight
-        }
       }
       portfolios {
         title
         slug
-        tags
-        description
-        date
-        coverImage
-        coverImageWidth
-        coverImageHeight
       }
     }
   `;

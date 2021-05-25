@@ -1,0 +1,12 @@
+query PortfolioItemsQuery {
+  portfolios {
+    title
+    slug
+    tags
+    description
+    date
+    coverImage
+    coverImageWidth
+    coverImageHeight
+  }
+}

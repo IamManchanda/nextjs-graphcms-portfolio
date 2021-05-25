@@ -1,26 +1,10 @@
-query PostsAndPortfoliosQuery {
+query HomepageQuery {
   posts {
     title
     slug
-    description
-    date
-    id
-    tags
-    author {
-      name
-      image
-      imageWidth
-      imageHeight
-    }
   }
   portfolios {
     title
     slug
-    tags
-    description
-    date
-    coverImage
-    coverImageWidth
-    coverImageHeight
   }
 }
