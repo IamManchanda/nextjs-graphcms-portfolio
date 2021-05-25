@@ -1,13 +1,7 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { GraphQLClient, gql } from "graphql-request";
 
 function PagePortfolioItemBySlug({ portfolioItem }) {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div className="p-10">Loading...</div>;
-  }
-
   console.log({ portfolioItem });
   const { title } = portfolioItem;
 
@@ -42,7 +36,7 @@ export async function getStaticPaths() {
     paths: portfolioItems.map(({ slug }) => ({
       params: { slug },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 
