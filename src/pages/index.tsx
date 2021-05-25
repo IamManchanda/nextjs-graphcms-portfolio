@@ -2,8 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { GraphQLClient, gql } from "graphql-request";
 
-const endpoint = process.env.GRAPHCMS_ENDPOINT;
-const graphQLClient = new GraphQLClient(endpoint);
+const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 function PageIndex({ data }) {
   return (
