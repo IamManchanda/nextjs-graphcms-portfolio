@@ -1,17 +1,13 @@
-query PostBySlugQuery($slug: String!) {
-  post(where: { slug: $slug }) {
+query PortfolioItemBySlugQuery($slug: String!) {
+  portfolio(where: { slug: $slug }) {
     title
     slug
+    tags
     description
     date
-    id
-    tags
+    coverImage
+    coverImageWidth
+    coverImageHeight
     content
-    author {
-      name
-      image
-      imageWidth
-      imageHeight
-    }
   }
 }

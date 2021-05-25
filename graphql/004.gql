@@ -1,0 +1,5 @@
+query PostsWithSlugQuery {
+  posts {
+    slug
+  }
+}
