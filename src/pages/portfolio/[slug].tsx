@@ -76,7 +76,6 @@ export async function getStaticProps({ params }) {
     props: {
       portfolioItem,
     },
-    revalidate: 60,
   };
 }
 
