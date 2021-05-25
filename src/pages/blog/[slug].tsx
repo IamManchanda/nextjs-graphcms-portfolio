@@ -46,7 +46,6 @@ export async function getStaticProps({ params }) {
     query BlogItemBySlugQuery($slug: String!) {
       blogItem: post(where: { slug: $slug }) {
         title
-        slug
         description
         date
         id
