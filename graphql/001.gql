@@ -1,0 +1,16 @@
+query PostsQuery {
+  posts {
+    title
+    slug
+    description
+    date
+    id
+    tags
+    author {
+      name
+      image
+      imageWidth
+      imageHeight
+    }
+  }
+}
