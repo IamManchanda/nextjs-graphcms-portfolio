@@ -2,6 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { GraphQLClient, gql } from "graphql-request";
 
+const endpoint = process.env.GRAPHCMS_ENDPOINT;
+const graphQLClient = new GraphQLClient(endpoint);
+
 function PageIndex({ data }) {
   return (
     <>
@@ -36,9 +39,6 @@ function PageIndex({ data }) {
 }
 
 export async function getStaticProps() {
-  const endpoint = process.env.GRAPHCMS_ENDPOINT;
-  const graphQLClient = new GraphQLClient(endpoint);
-
   const query = gql`
     query HomepageQuery {
       portfolioItems: portfolios {

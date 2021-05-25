@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { GraphQLClient, gql } from "graphql-request";
 
+const endpoint = process.env.GRAPHCMS_ENDPOINT;
+const graphQLClient = new GraphQLClient(endpoint);
+
 function PagePortfolioItemBySlug({ portfolioItem }) {
   console.log({ portfolioItem });
   const { title } = portfolioItem;
@@ -19,9 +22,6 @@ function PagePortfolioItemBySlug({ portfolioItem }) {
 }
 
 export async function getStaticPaths() {
-  const endpoint = process.env.GRAPHCMS_ENDPOINT;
-  const graphQLClient = new GraphQLClient(endpoint);
-
   const query = gql`
     query PortfolioItemsWithSlugQuery {
       portfolioItems: portfolios {
@@ -42,9 +42,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-
-  const endpoint = process.env.GRAPHCMS_ENDPOINT;
-  const graphQLClient = new GraphQLClient(endpoint);
 
   const query = gql`
     query PortfolioItemBySlugQuery($slug: String!) {
