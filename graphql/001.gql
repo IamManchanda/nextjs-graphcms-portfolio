@@ -1,9 +1,9 @@
 query HomepageQuery {
-  posts {
+  portfolioItems: portfolios {
     title
     slug
   }
-  portfolios {
+  blogItems: posts {
     title
     slug
   }

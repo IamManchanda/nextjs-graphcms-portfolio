@@ -12,7 +12,7 @@ function PageIndex({ data }) {
 
       <div className="p-10">
         <div>
-          {data?.portfolios?.map(({ title, slug }) => (
+          {data?.portfolioItems?.map(({ title, slug }) => (
             <div key={slug}>
               <Link href={`/portfolio/${slug}`}>
                 <a>{title}</a>
@@ -22,7 +22,7 @@ function PageIndex({ data }) {
         </div>
 
         <div className="mt-10">
-          {data?.posts?.map(({ title, slug }) => (
+          {data?.blogItems?.map(({ title, slug }) => (
             <div key={slug}>
               <Link href={`/blog/${slug}`}>
                 <a>{title}</a>
@@ -41,11 +41,11 @@ export async function getStaticProps() {
 
   const query = gql`
     query HomepageQuery {
-      posts {
+      portfolioItems: portfolios {
         title
         slug
       }
-      portfolios {
+      blogItems: posts {
         title
         slug
       }
