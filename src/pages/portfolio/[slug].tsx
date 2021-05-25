@@ -79,10 +79,10 @@ export async function getStaticProps({ params }) {
         date
         description
         tags
-        content
         coverImage
         coverImageWidth
         coverImageHeight
+        content
       }
     }
   `;
