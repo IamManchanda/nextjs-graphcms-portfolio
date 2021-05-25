@@ -1,5 +1,5 @@
-query PostBySlugQuery($slug: String!) {
-  post(where: { slug: $slug }) {
+query BlogItemBySlugQuery($slug: String!) {
+  blogItem: post(where: { slug: $slug }) {
     title
     slug
     description

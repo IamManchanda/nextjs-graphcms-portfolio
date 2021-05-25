@@ -1,5 +1,5 @@
-query PostsWithSlugQuery {
-  posts {
+query BlogItemsWithSlugQuery {
+  blogItems: posts {
     slug
   }
 }
