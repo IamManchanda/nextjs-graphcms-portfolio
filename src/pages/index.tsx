@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { GraphQLClient, gql } from "graphql-request";
+import JumbotronHero from "../components/jumbotron-hero";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
@@ -12,6 +13,8 @@ function PageIndex({ data }) {
         <title>Full Stack Portfolio & Blog - Next.js & GraphCMS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <JumbotronHero />
 
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
         {data?.portfolioItems?.map(
