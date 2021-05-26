@@ -4,7 +4,7 @@ function NavigationHeader() {
   return (
     <div className="w-full px-4 py-10 sm:px-6 lg:px-0">
       <div className="flex items-center justify-between max-w-3xl mx-auto">
-        <div className="text-2xl font-semibold">Awesome Portfolio</div>
+        <div className="text-2xl font-semibold">Awesome GraphCMS</div>
         <ul className="flex text-lg">
           <li>
             <Link href="/">

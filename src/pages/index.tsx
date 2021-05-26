@@ -9,7 +9,7 @@ function PageIndex({ data }) {
   return (
     <>
       <Head>
-        <title>Next.js GraphCMS Portfolio</title>
+        <title>Full Stack Portfolio & Blog - Next.js & GraphCMS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -27,12 +27,14 @@ function PageIndex({ data }) {
               <Link href={`/portfolio/${slug}`}>
                 <a>
                   <div className="relative mb-10">
-                    <div className="absolute z-10 w-full h-full bg-green-900 opacity-60" />
-                    <div className="absolute z-20 flex flex-col items-center justify-center w-full h-full">
+                    <div className="absolute z-10 w-full h-full bg-green-900 opacity-70" />
+                    <div className="absolute z-20 flex flex-col items-center justify-center w-full h-full px-4 text-center">
                       <h3 className="text-2xl font-semibold text-white">
                         {title}
                       </h3>
-                      <p className="text-lg text-gray-50">{description}</p>
+                      <p className="mt-3 text-lg leading-relaxed text-gray-50">
+                        {description}
+                      </p>
                     </div>
                     <Image
                       alt={title}
