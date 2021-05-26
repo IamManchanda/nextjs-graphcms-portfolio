@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function NavigationHeader() {
   return (
-    <div className="w-full py-10">
+    <div className="w-full px-4 py-10 sm:px-6 lg:px-0">
       <div className="flex items-center justify-between max-w-3xl mx-auto">
         <div className="text-2xl font-semibold">Awesome Portfolio</div>
         <ul className="flex text-lg">
