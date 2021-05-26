@@ -16,29 +16,27 @@ function PageBlogItemBySlug({ blogItem }) {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="p-10">
-        <h1>{title}</h1>
-        <p>{new Date(date).toDateString()}</p>
-        <p>{description}</p>
+      <h1>{title}</h1>
+      <p>{new Date(date).toDateString()}</p>
+      <p>{description}</p>
 
-        <div>{author.name}</div>
-        <Image
-          alt={author.name}
-          title={author.name}
-          src={`/images/author-images/${author.image}`}
-          width={author.imageWidth / 3}
-          height={author.imageHeight / 3}
-        />
+      <div>{author.name}</div>
+      <Image
+        alt={author.name}
+        title={author.name}
+        src={`/images/author-images/${author.image}`}
+        width={author.imageWidth / 3}
+        height={author.imageHeight / 3}
+      />
 
-        <div>
-          {tags.map((tag) => (
-            <span key={tag}>{tag} &nbsp;</span>
-          ))}
-        </div>
+      <div>
+        {tags.map((tag) => (
+          <span key={tag}>{tag} &nbsp;</span>
+        ))}
+      </div>
 
-        <div>
-          <MDXRemote {...contentMdx} />
-        </div>
+      <div>
+        <MDXRemote {...contentMdx} />
       </div>
     </>
   );

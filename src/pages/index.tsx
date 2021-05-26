@@ -12,26 +12,24 @@ function PageIndex({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="p-10">
-        <div>
-          {data?.portfolioItems?.map(({ title, slug }) => (
-            <div key={slug}>
-              <Link href={`/portfolio/${slug}`}>
-                <a>{title}</a>
-              </Link>
-            </div>
-          ))}
-        </div>
+      <div className="mt-10">
+        {data?.portfolioItems?.map(({ title, slug }) => (
+          <div key={slug}>
+            <Link href={`/portfolio/${slug}`}>
+              <a>{title}</a>
+            </Link>
+          </div>
+        ))}
+      </div>
 
-        <div className="mt-10">
-          {data?.blogItems?.map(({ title, slug }) => (
-            <div key={slug}>
-              <Link href={`/blog/${slug}`}>
-                <a>{title}</a>
-              </Link>
-            </div>
-          ))}
-        </div>
+      <div className="mt-10">
+        {data?.blogItems?.map(({ title, slug }) => (
+          <div key={slug}>
+            <Link href={`/blog/${slug}`}>
+              <a>{title}</a>
+            </Link>
+          </div>
+        ))}
       </div>
     </>
   );
