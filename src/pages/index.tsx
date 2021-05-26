@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { GraphQLClient, gql } from "graphql-request";
 import JumbotronHero from "../components/jumbotron-hero";
+import NavigationFooter from "../components/navigation-footer";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
@@ -95,6 +96,8 @@ function PageIndex({ data }) {
           )}
         </div>
       </div>
+
+      <NavigationFooter />
     </>
   );
 }
