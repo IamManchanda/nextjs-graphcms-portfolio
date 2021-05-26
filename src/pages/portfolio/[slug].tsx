@@ -29,11 +29,7 @@ function PagePortfolioItemBySlug({ portfolioItem }) {
         <h1>{title}</h1>
         <p>{new Date(date).toDateString()}</p>
         <p>{description}</p>
-        <div>
-          {tags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
+
         <Image
           alt={title}
           title={title}
@@ -42,6 +38,13 @@ function PagePortfolioItemBySlug({ portfolioItem }) {
           height={coverImageHeight}
           layout="responsive"
         />
+
+        <div>
+          {tags.map((tag) => (
+            <span key={tag}>{tag} &nbsp;</span>
+          ))}
+        </div>
+
         <div>
           <MDXRemote {...contentMdx} />
         </div>

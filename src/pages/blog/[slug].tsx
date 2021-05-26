@@ -1,11 +1,15 @@
 import Head from "next/head";
+import Image from "next/image";
 import { GraphQLClient, gql } from "graphql-request";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import he from "he";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 function PageBlogItemBySlug({ blogItem }) {
   console.log({ blogItem });
-  const { title } = blogItem;
+  const { title, date, description, tags, author, contentMdx } = blogItem;
 
   return (
     <>
@@ -15,6 +19,27 @@ function PageBlogItemBySlug({ blogItem }) {
       </Head>
       <div className="p-10">
         <h1>{title}</h1>
+        <p>{new Date(date).toDateString()}</p>
+        <p>{description}</p>
+
+        <div>{author.name}</div>
+        <Image
+          alt={author.name}
+          title={author.name}
+          src={`/images/author-images/${author.image}`}
+          width={author.imageWidth}
+          height={author.imageHeight}
+        />
+
+        <div>
+          {tags.map((tag) => (
+            <span key={tag}>{tag} &nbsp;</span>
+          ))}
+        </div>
+
+        <div>
+          <MDXRemote {...contentMdx} />
+        </div>
       </div>
     </>
   );
@@ -46,17 +71,16 @@ export async function getStaticProps({ params }) {
     query BlogItemBySlugQuery($slug: String!) {
       blogItem: post(where: { slug: $slug }) {
         title
-        description
         date
-        id
+        description
         tags
-        content
         author {
           name
           image
           imageWidth
           imageHeight
         }
+        content
       }
     }
   `;
@@ -67,7 +91,10 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      blogItem,
+      blogItem: {
+        contentMdx: await serialize(he.decode(blogItem.content)),
+        ...blogItem,
+      },
     },
   };
 }
