@@ -27,8 +27,8 @@ function PageBlogItemBySlug({ blogItem }) {
           alt={author.name}
           title={author.name}
           src={`/images/author-images/${author.image}`}
-          width={author.imageWidth}
-          height={author.imageHeight}
+          width={author.imageWidth / 3}
+          height={author.imageHeight / 3}
         />
 
         <div>
