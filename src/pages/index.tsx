@@ -19,6 +19,7 @@ function PageIndex({ data }) {
             title,
             slug,
             description,
+            tags,
             coverImage,
             coverImageWidth,
             coverImageHeight,
@@ -35,6 +36,16 @@ function PageIndex({ data }) {
                       <p className="mt-3 text-lg leading-relaxed text-gray-50">
                         {description}
                       </p>
+                      <div className="mt-3">
+                        {tags.map((tag) => (
+                          <span
+                            className="px-2 py-1 m-2 text-sm tracking-wide text-white uppercase bg-green-700 rounded-lg"
+                            key={tag}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <Image
                       alt={title}
@@ -92,6 +103,7 @@ export async function getStaticProps() {
         title
         slug
         description
+        tags
         coverImage
         coverImageWidth
         coverImageHeight
