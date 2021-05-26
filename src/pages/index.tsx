@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Fragment } from "react";
 import { GraphQLClient, gql } from "graphql-request";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
