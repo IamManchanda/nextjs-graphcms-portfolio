@@ -8,7 +8,6 @@ import he from "he";
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 function PageBlogItemBySlug({ blogItem }) {
-  console.log({ blogItem });
   const { title, date, description, tags, author, contentMdx } = blogItem;
 
   return (
