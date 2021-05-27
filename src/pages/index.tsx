@@ -1,8 +1,10 @@
 import Head from "next/head";
-import { GraphQLClient, gql } from "graphql-request";
+import { GraphQLClient } from "graphql-request";
+
 import JumbotronHero from "../components/jumbotron-hero";
 import PortfolioItemsContainer from "../components/portfolio-items-container";
 import BlogItemsContainer from "../components/blog-items-container";
+import { FetchHomepageQuery } from "../lib/graphql/queries";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
@@ -36,30 +38,7 @@ function PageIndex({ data }) {
 }
 
 export async function getStaticProps() {
-  const query = gql`
-    query HomepageQuery {
-      portfolioItems: portfolios(first: 2, orderBy: date_DESC) {
-        title
-        slug
-        description
-        tags
-        coverImage
-        coverImageWidth
-        coverImageHeight
-      }
-      blogItems: posts(first: 2, orderBy: date_DESC) {
-        title
-        slug
-        date
-        description
-        author {
-          name
-        }
-      }
-    }
-  `;
-
-  const data = await graphQLClient.request(query);
+  const data = await graphQLClient.request(FetchHomepageQuery);
 
   return {
     props: {
