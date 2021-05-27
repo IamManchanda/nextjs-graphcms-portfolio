@@ -18,6 +18,9 @@ function PageIndex({ data }) {
       <JumbotronHero />
 
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
+        <div className="mb-4 text-3xl font-semibold text-gray-900">
+          Recent Projects
+        </div>
         {data?.portfolioItems?.map(
           ({
             title,
@@ -70,6 +73,9 @@ function PageIndex({ data }) {
 
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
         <div className="mt-20">
+          <div className="mb-4 text-3xl font-semibold text-gray-900">
+            Recent Posts
+          </div>
           {data?.blogItems?.map(
             ({ title, slug, date, description, author }) => (
               <div className="grid grid-cols-1 py-6 md:grid-cols-4" key={slug}>
@@ -105,7 +111,7 @@ function PageIndex({ data }) {
 export async function getStaticProps() {
   const query = gql`
     query HomepageQuery {
-      portfolioItems: portfolios(first: 1, orderBy: date_DESC) {
+      portfolioItems: portfolios(first: 2, orderBy: date_DESC) {
         title
         slug
         description
