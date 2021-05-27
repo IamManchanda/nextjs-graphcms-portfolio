@@ -18,6 +18,17 @@ function PageBlogItemBySlug({ blogItem }) {
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
         <h1 className="text-5xl font-bold text-gray-900">{title}</h1>
 
+        <div className="flex mt-3 space-x-3">
+          {tags.map((tag) => (
+            <span
+              className="px-2 py-1 m-2 text-sm tracking-wide text-gray-900 uppercase bg-gray-100 rounded-lg"
+              key={tag}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
         <div className="flex items-center justify-between my-2">
           <p className="text-lg text-gray-700">
             {new Date(date).toDateString()}
@@ -38,18 +49,7 @@ function PageBlogItemBySlug({ blogItem }) {
           </div>
         </div>
 
-        <div className="flex justify-center mt-2 mb-6 space-x-3">
-          {tags.map((tag) => (
-            <span
-              className="px-2 py-1 m-2 text-sm tracking-wide text-gray-900 uppercase bg-gray-100 rounded-lg"
-              key={tag}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="prose prose-xl max-w-none">
+        <div className="mt-8 prose prose-xl max-w-none">
           <MDXRemote {...contentMdx} />
         </div>
       </div>
