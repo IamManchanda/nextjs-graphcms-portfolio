@@ -18,7 +18,7 @@ function PageBlogItemBySlug({ blogItem }) {
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
         <h1 className="text-5xl font-bold text-gray-900">{title}</h1>
 
-        <div className="flex mt-3 space-x-3">
+        <div className="flex justify-center mt-3 space-x-3">
           {tags.map((tag) => (
             <span
               className="px-2 py-1 m-2 text-sm tracking-wide text-gray-900 uppercase bg-gray-100 rounded-lg"

@@ -25,26 +25,38 @@ function PagePortfolioItemBySlug({ portfolioItem }) {
         <title>{title} - Next.js + GraphCMS</title>
       </Head>
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
-        <h1>{title}</h1>
-        <p>{new Date(date).toDateString()}</p>
-        <p>{description}</p>
+        <h1 className="text-5xl font-bold text-gray-900">{title}</h1>
 
-        <Image
-          alt={title}
-          title={title}
-          src={`/images/portfolio-images/${coverImage}`}
-          width={coverImageWidth}
-          height={coverImageHeight}
-          layout="responsive"
-        />
-
-        <div>
-          {tags.map((tag) => (
-            <span key={tag}>{tag} &nbsp;</span>
-          ))}
+        <div className="flex items-center justify-between mb-4">
+          <p className="mt-3 text-lg text-gray-700">
+            {new Date(date).toDateString()}
+          </p>
+          <div className="flex mt-3 space-x-3">
+            {tags.map((tag) => (
+              <span
+                className="px-2 py-1 m-2 text-sm tracking-wide text-gray-900 uppercase bg-gray-100 rounded-lg"
+                key={tag}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <div>
+        <p className="py-4 prose prose-xl">{description}</p>
+
+        <div className="mt-6 mb-4">
+          <Image
+            alt={title}
+            title={title}
+            src={`/images/portfolio-images/${coverImage}`}
+            width={coverImageWidth}
+            height={coverImageHeight}
+            layout="responsive"
+          />
+        </div>
+
+        <div className="mt-8 prose prose-xl max-w-none">
           <MDXRemote {...contentMdx} />
         </div>
       </div>
