@@ -37,7 +37,7 @@ function PageIndex({ data }) {
                       <h3 className="text-2xl font-semibold text-white">
                         {title}
                       </h3>
-                      <p className="mt-3 text-lg leading-relaxed text-gray-50">
+                      <p className="hidden mt-3 text-lg leading-relaxed md:flex text-gray-50">
                         {description}
                       </p>
                       <div className="mt-3">
@@ -69,7 +69,7 @@ function PageIndex({ data }) {
       </div>
 
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
-        <div className="mt-10">
+        <div className="mt-20">
           {data?.blogItems?.map(
             ({ title, slug, date, description, author }) => (
               <div className="grid grid-cols-1 py-6 md:grid-cols-4" key={slug}>

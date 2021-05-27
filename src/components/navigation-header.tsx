@@ -3,9 +3,9 @@ import Link from "next/link";
 function NavigationHeader() {
   return (
     <div className="w-full px-4 py-10 sm:px-6 lg:px-0">
-      <div className="flex items-center justify-between max-w-3xl mx-auto">
+      <div className="flex flex-col items-center justify-between max-w-3xl mx-auto sm:flex-row">
         <div className="text-2xl font-semibold">Awesome GraphCMS</div>
-        <ul className="flex text-lg">
+        <ul className="flex mt-4 text-lg sm:mt-0">
           <li>
             <Link href="/">
               <a className="text-gray-900 hover:text-gray-700 hover:underline">
