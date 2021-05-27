@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.1",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "he": "^1.2.0",
