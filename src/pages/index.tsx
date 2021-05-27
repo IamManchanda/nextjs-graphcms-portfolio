@@ -18,7 +18,7 @@ function PageIndex({ data }) {
       <JumbotronHero />
 
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
-        <div className="mb-4 text-3xl font-semibold text-gray-900">
+        <div className="mt-2 mb-8 text-3xl font-semibold text-gray-900 underline">
           Recent Projects
         </div>
         {data?.portfolioItems?.map(
@@ -73,7 +73,7 @@ function PageIndex({ data }) {
 
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
         <div className="mt-20">
-          <div className="mb-4 text-3xl font-semibold text-gray-900">
+          <div className="mb-4 text-3xl font-semibold text-gray-900 underline">
             Recent Posts
           </div>
           {data?.blogItems?.map(
