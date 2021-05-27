@@ -1,18 +1,25 @@
+import Head from "next/head";
 import { GraphQLClient, gql } from "graphql-request";
+
 import BlogItemsContainer from "../../components/blog-items-container";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 function PageBlogItems({ blogItems }) {
   return (
-    <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
-      <div className="mt-20">
-        <div className="mb-4 text-3xl font-semibold text-gray-900 underline">
-          All Posts
+    <>
+      <Head>
+        <title>Blog - Next.js + GraphCMS</title>
+      </Head>
+      <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
+        <div className="mt-20">
+          <div className="mb-4 text-3xl font-semibold text-gray-900 underline">
+            All Posts
+          </div>
+          <BlogItemsContainer blogItems={blogItems} />
         </div>
-        <BlogItemsContainer blogItems={blogItems} />
       </div>
-    </div>
+    </>
   );
 }
 

@@ -13,8 +13,7 @@ function PageBlogItemBySlug({ blogItem }) {
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{title} - Next.js + GraphCMS</title>
       </Head>
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
         <h1 className="text-5xl font-bold text-gray-900">{title}</h1>
