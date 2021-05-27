@@ -8,7 +8,7 @@ function PageAbout({ about }) {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>About {about.name}!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
