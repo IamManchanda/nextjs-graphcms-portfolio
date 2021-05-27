@@ -105,7 +105,7 @@ function PageIndex({ data }) {
 export async function getStaticProps() {
   const query = gql`
     query HomepageQuery {
-      portfolioItems: portfolios {
+      portfolioItems: portfolios(first: 1, orderBy: date_DESC) {
         title
         slug
         description
@@ -114,7 +114,7 @@ export async function getStaticProps() {
         coverImageWidth
         coverImageHeight
       }
-      blogItems: posts {
+      blogItems: posts(first: 2, orderBy: date_DESC) {
         title
         slug
         date
