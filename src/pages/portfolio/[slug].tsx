@@ -25,27 +25,29 @@ function PagePortfolioItemBySlug({ portfolioItem }) {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>{title}</h1>
-      <p>{new Date(date).toDateString()}</p>
-      <p>{description}</p>
+      <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
+        <h1>{title}</h1>
+        <p>{new Date(date).toDateString()}</p>
+        <p>{description}</p>
 
-      <Image
-        alt={title}
-        title={title}
-        src={`/images/portfolio-images/${coverImage}`}
-        width={coverImageWidth}
-        height={coverImageHeight}
-        layout="responsive"
-      />
+        <Image
+          alt={title}
+          title={title}
+          src={`/images/portfolio-images/${coverImage}`}
+          width={coverImageWidth}
+          height={coverImageHeight}
+          layout="responsive"
+        />
 
-      <div>
-        {tags.map((tag) => (
-          <span key={tag}>{tag} &nbsp;</span>
-        ))}
-      </div>
+        <div>
+          {tags.map((tag) => (
+            <span key={tag}>{tag} &nbsp;</span>
+          ))}
+        </div>
 
-      <div>
-        <MDXRemote {...contentMdx} />
+        <div>
+          <MDXRemote {...contentMdx} />
+        </div>
       </div>
     </>
   );
