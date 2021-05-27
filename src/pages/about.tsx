@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { GraphQLClient, gql } from "graphql-request";
 import JumbotronAbout from "../components/jumbotron-about";
-import { FetchAboutpageQuery } from "../lib/graphql/queries";
 
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
@@ -19,9 +18,20 @@ function PageAbout({ about }) {
 }
 
 export async function getStaticProps() {
-  const { about } = await graphQLClient.request(FetchAboutpageQuery, {
+  const query = gql`
+    query AboutpageQuery($slug: String!) {
+      about: author(where: { slug: $slug }) {
+        name
+        biography
+      }
+    }
+  `;
+
+  const variables = {
     slug: "harry-manchanda",
-  });
+  };
+
+  const { about } = await graphQLClient.request(query, variables);
 
   return {
     props: {
