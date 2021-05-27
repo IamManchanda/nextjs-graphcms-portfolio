@@ -5,7 +5,7 @@ function NavigationHeader() {
     <div className="w-full px-4 py-10 sm:px-6 lg:px-0">
       <div className="flex flex-col items-center justify-between max-w-3xl mx-auto sm:flex-row">
         <div className="text-3xl font-semibold sm:text-2xl">
-          Awesome GraphCMS
+          Next.js + GraphCMS
         </div>
         <ul className="flex mt-4 text-lg sm:mt-0">
           <li>
