@@ -8,7 +8,7 @@ import he from "he";
 const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT);
 
 function PageBlogItemBySlug({ blogItem }) {
-  const { title, date, description, tags, author, contentMdx } = blogItem;
+  const { title, date, tags, author, contentMdx } = blogItem;
 
   return (
     <>
@@ -17,26 +17,40 @@ function PageBlogItemBySlug({ blogItem }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-0">
-        <h1>{title}</h1>
-        <p>{new Date(date).toDateString()}</p>
-        <p>{description}</p>
+        <h1 className="text-5xl font-bold text-gray-900">{title}</h1>
 
-        <div>{author.name}</div>
-        <Image
-          alt={author.name}
-          title={author.name}
-          src={`/images/author-images/${author.image}`}
-          width={author.imageWidth / 3}
-          height={author.imageHeight / 3}
-        />
+        <div className="flex items-center justify-between my-2">
+          <p className="text-lg text-gray-700">
+            {new Date(date).toDateString()}
+          </p>
+          <div className="flex items-center">
+            <div className="mr-4 text-lg font-semibold text-gray-900">
+              {author.name}
+            </div>
+            <Image
+              alt={author.name}
+              title={author.name}
+              className="rounded-full"
+              src={`/images/author-images/${author.image}`}
+              width={75}
+              height={75}
+              objectFit="cover"
+            />
+          </div>
+        </div>
 
-        <div>
+        <div className="flex justify-center mt-2 mb-6 space-x-3">
           {tags.map((tag) => (
-            <span key={tag}>{tag} &nbsp;</span>
+            <span
+              className="px-2 py-1 m-2 text-sm tracking-wide text-gray-900 uppercase bg-gray-100 rounded-lg"
+              key={tag}
+            >
+              {tag}
+            </span>
           ))}
         </div>
 
-        <div>
+        <div className="prose prose-xl max-w-none">
           <MDXRemote {...contentMdx} />
         </div>
       </div>
@@ -71,7 +85,6 @@ export async function getStaticProps({ params }) {
       blogItem: post(where: { slug: $slug }) {
         title
         date
-        description
         tags
         author {
           name
