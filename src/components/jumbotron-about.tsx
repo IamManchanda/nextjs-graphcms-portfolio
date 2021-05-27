@@ -1,6 +1,6 @@
 function JumbotronAbout({ name, biography }) {
   return (
-    <div className="flex flex-col max-w-3xl px-4 pt-10 pb-20 mx-auto sm:px-6 lg:px-0">
+    <div className="flex flex-col max-w-3xl px-4 py-10 mx-auto sm:px-6 lg:px-0">
       <h1 className="text-5xl font-bold text-gray-900">
         <span className="text-green-700">About {name}!</span>
       </h1>
