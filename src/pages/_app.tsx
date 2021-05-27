@@ -6,9 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <NavigationHeader />
-
       <Component {...pageProps} />
-
       <NavigationFooter />
     </>
   );
